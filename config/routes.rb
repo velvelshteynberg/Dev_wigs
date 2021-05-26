@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :clients, only:[:new, :create]
   resources :photos, only:[:index]
   resource :consultations, only:[:new, :create]
+  resource :users, only: [:new, :create]
+  resource :session, only: [:new, :create]
   
 end
