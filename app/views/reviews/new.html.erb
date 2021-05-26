@@ -1,46 +1,46 @@
-<h1> Request a consultation </h1> 
-<h2> Please fill out the form and submit it to us. We will get back to you promptly </h2> 
+<h1> Submiit a review </h1> 
+<h2> Please fill out the form and submit your review. We greatly appreciate all reviews</h2> 
 
-<%= form_for @consultation_request do |f| %>
+<%= form_for @review do |f| %>
 
     <div> 
         <%=f.fields_for :client do |f| %> 
         <%= f.label :first_name %>
-        <%= f.text :first_name %> 
-        <% end %>
+        <%= f.text :first_name
+        <% end %> 
     </div> 
 
     <div> 
         <%=f.fields_for :client do |f| %> 
         <%= f.label :last_name %>
         <%= f.text :last_name %>
-        <% end %>
+        <% end %> 
     </div> 
 
     <div> 
         <%=f.fields_for :client do |f| %> 
         <%= f.label :email %>
         <%= f.text :email %>
-        <% end %>
+        <% end %> 
     </div> 
 
     <div> 
         <%=f.fields_for :client do |f| %> 
         <%= f.label :phone %>
         <%= f.number :phone %> 
-        <% end %>
+        <% end %> 
     </div> 
 
     <div> 
-        <%= f.label :consultation_request %>
-        <%= f.checkbox :consultation_request %> 
+        <%= f.label :review %>
+        <%= f.checkbox :review %> 
     </div> 
 
     <div> 
-        <%= f.label :consultation_request %>
-        <%= f.text :consultation_request, :attr, placeholder: "Any specific questions..." %> 
+        <%= f.label :review %>
+        <%= f.text :review, :attr, placeholder: "Please write your review..." %> 
     </div> 
 
-<%= f.submit "Submit request" %>
+<%= f.submit "Submit review" %>
 
 <% end %>
