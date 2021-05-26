@@ -4,28 +4,28 @@
 <%= form_for @consultation_request do |f| %>
 
     <div> 
-        <%=f.fields_for :client do |f| %> 
+        <%=f.fields_for @client do |f| %> 
         <%= f.label :first_name %>
         <%= f.text :first_name %> 
         <% end %>
     </div> 
 
     <div> 
-        <%=f.fields_for :client do |f| %> 
+        <%=f.fields_for @client do |f| %> 
         <%= f.label :last_name %>
         <%= f.text :last_name %>
         <% end %>
     </div> 
 
     <div> 
-        <%=f.fields_for :client do |f| %> 
+        <%=f.fields_for @client do |f| %> 
         <%= f.label :email %>
         <%= f.text :email %>
         <% end %>
     </div> 
 
     <div> 
-        <%=f.fields_for :client do |f| %> 
+        <%=f.fields_for @client do |f| %> 
         <%= f.label :phone %>
         <%= f.number :phone %> 
         <% end %>
@@ -33,14 +33,9 @@
 
     <div> 
         <%= f.label :consultation_request %>
-        <%= f.checkbox :consultation_request %> 
+        <%= f.text :consultation_request %> 
     </div> 
 
-    <div> 
-        <%= f.label :consultation_request %>
-        <%= f.text :consultation_request, :attr, placeholder: "Any specific questions..." %> 
-    </div> 
-
-<%= f.submit "Submit request" %>
+    <%= f.submit "Submit request" %>
 
 <% end %>
