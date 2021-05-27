@@ -1,45 +1,48 @@
 <h1> Submiit a review </h1> 
 <h2> Please fill out the form and submit your review. We greatly appreciate all reviews</h2> 
 
-<%= form_for @review do |f| %>
+<%= form_for :review, url: reviews_path do |f| %>
 
-    <div> 
-        <%=f.fields_for :client do |f| %> 
-        <%= f.label :first_name %>
-        <%= f.text :first_name
-        <% end %> 
-    </div> 
+    <%= fields_for :client do |ff| %> 
+        
 
-    <div> 
-        <%=f.fields_for :client do |f| %> 
-        <%= f.label :last_name %>
-        <%= f.text :last_name %>
-        <% end %> 
-    </div> 
+        <div> 
+            <%= ff.label :first_name %>
+            <%= ff.text_field :first_name %>
+        </div> 
+    
+        <div> 
+        
+             <%= ff.label :last_name %>
+            <%= ff.text_field :last_name %>
+       
+        </div> 
 
-    <div> 
-        <%=f.fields_for :client do |f| %> 
-        <%= f.label :email %>
-        <%= f.text :email %>
-        <% end %> 
-    </div> 
+        <div> 
+       
+            <%= ff.label :email %>
+            <%= ff.text_field :email %>
+       
+        </div> 
 
-    <div> 
-        <%=f.fields_for :client do |f| %> 
-        <%= f.label :phone %>
-        <%= f.number :phone %> 
-        <% end %> 
-    </div> 
+        <div> 
+      
+            <%= ff.label :phone %>
+            <%= ff.number_field :phone %> 
+        
+        </div> 
 
-    <div> 
-        <%= f.label :review %>
-        <%= f.checkbox :review %> 
-    </div> 
+     <% end %> 
 
-    <div> 
-        <%= f.label :review %>
-        <%= f.text :review, :attr, placeholder: "Please write your review..." %> 
-    </div> 
+        <div> 
+            <%= f.label :review %>
+            <%= f.check_box :review %> 
+        </div> 
+
+        <div> 
+            <%= f.label :review %>
+            <%= f.text_field :review %> 
+        </div> 
 
 <%= f.submit "Submit review" %>
 

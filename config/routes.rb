@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :photos, only:[:index]
   resource :consultations, only:[:new, :create]
   resource :users, only: [:new, :create]
-  resource :session, only: [:new, :create]
+  resource :session, only: [:new, :create, :destroy]
+  resources :reviews, only: [:new, :create]
   
 end

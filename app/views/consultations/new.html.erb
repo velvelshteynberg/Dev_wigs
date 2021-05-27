@@ -1,39 +1,42 @@
 <h1> Request a consultation </h1> 
 <h2> Please fill out the form and submit it to us. We will get back to you promptly </h2> 
 
-<%= form_for @consultation_request do |f| %>
+<%= form_for :consultation, url: consultations_path do |f| %>
 
-    <div> 
-        <%=f.fields_for @client do |f| %> 
-        <%= f.label :first_name %>
-        <%= f.text :first_name %> 
-        <% end %>
-    </div> 
+    <%= fields_for :client do |ff| %> 
+        
 
-    <div> 
-        <%=f.fields_for @client do |f| %> 
-        <%= f.label :last_name %>
-        <%= f.text :last_name %>
-        <% end %>
-    </div> 
+        <div> 
+            <%= ff.label :first_name %>
+            <%= ff.text_field :first_name %>
+        </div> 
+    
+        <div> 
+        
+             <%= ff.label :last_name %>
+            <%= ff.text_field :last_name %>
+       
+        </div> 
 
-    <div> 
-        <%=f.fields_for @client do |f| %> 
-        <%= f.label :email %>
-        <%= f.text :email %>
-        <% end %>
-    </div> 
+        <div> 
+       
+            <%= ff.label :email %>
+            <%= ff.text_field :email %>
+       
+        </div> 
 
-    <div> 
-        <%=f.fields_for @client do |f| %> 
-        <%= f.label :phone %>
-        <%= f.number :phone %> 
-        <% end %>
-    </div> 
+        <div> 
+      
+            <%= ff.label :phone %>
+            <%= ff.text_field :phone %> 
+        
+        </div> 
+
+     <% end %>
 
     <div> 
         <%= f.label :consultation_request %>
-        <%= f.text :consultation_request %> 
+        <%= f.text_field :request %> 
     </div> 
 
     <%= f.submit "Submit request" %>

@@ -11,9 +11,9 @@ class UsersController < ApplicationController
         submitted_password = params[:user][:password_confirmation]
 
         if @user.save 
-            redirect_to root_url
+            redirect_to new_session_path
         else
-            render :new
+            render plain: "You have not been able to succwfully create a user"
         end 
     end 
 
