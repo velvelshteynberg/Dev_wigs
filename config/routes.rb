@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resource :consultations, only:[:new, :create]
   resource :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  resources :reviews, only: [:new, :create]
+  resources :reviews, only: [:new, :create, :index]
+  resources :approvals, only: [:index]
   
 end
