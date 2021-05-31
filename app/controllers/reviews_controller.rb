@@ -15,14 +15,19 @@ class ReviewsController < ApplicationController
             @client.last_name = submitted_last_name
             @client.email = submitted_email
             @client.phone = submitted_phone
-    
+            @client.save
+
             submitted_review = params[:review][:review]
             @review.review = submitted_review
 
-                if @review.save && @client.save
+                if @client.save 
+
+                @review.client_id = @client.id
+                @review.save
                 render plain: "Thank you for your review."
 
                 else
+
                 render plain: "We have not been able to process your review. Please try again later."
                 
                 end  

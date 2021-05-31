@@ -14,30 +14,30 @@ class ConsultationsController < ApplicationController
         @client.last_name = submitted_last_name
         @client.email = submitted_email
         @client.phone = submitted_phone
+        @client.save
 
         submitted_consultation_request = params[:consultation][:request]
         @consultation.request = submitted_consultation_request
+        
 
         #change this to a private method
 
         
 
-        if @client.save
+            if @client.save
 
-        @consultation.client = @client
-
-            if @consultation.save
+            @consultation.client_id = @client.id
+            @consultation.save
             
             # Tell the UserMailer to send a welcome email after save
-            UserMailer.with(user: @user).welcome_email.deliver_later
+            # UsersMailer.with(user: @client).welcome_email.deliver_later
 
             render plain: "you have successfully requested a consultation"
-            end 
            
-        else
+            else
             render plain: "We have not been able to process your consultation request"
             
-        end 
+            end 
 
     end
 
