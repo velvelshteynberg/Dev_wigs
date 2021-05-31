@@ -18,18 +18,13 @@ class ReviewsController < ApplicationController
     
             submitted_review = params[:review][:review]
             @review.review = submitted_review
-            @review.approved = "false"
-            @review.reviewed_by_admin = "false"
 
                 if @review.save && @client.save
                 render plain: "Thank you for your review."
 
-                
-
                 else
                 render plain: "We have not been able to process your review. Please try again later."
                 
-                end
-            end  
+                end  
     end 
 end

@@ -1,0 +1,35 @@
+<% if @not_approved_and_not_looked_over_reviews.count > 0 %>
+
+<h1> These are the reviews that await your approval and confirmation </h1> 
+
+<%= @not_approved_and_not_looked_over_reviews.each do |review| %> 
+    
+    <%= form_for @not_approved_and_not_looked_over_reviews do |f| %>
+
+   <h2> Submitted by <%= review.first_name %> <%= review.last_name %> </h2> 
+   <h3> In the review <%= review.first_name %> <%= review.last_name %> writes that "<%= review.review %>" </h3> 
+
+   <div> 
+        <%= f.label :approved %> 
+        <%= f.checkbox :approved %> 
+   </div> 
+
+   <div> 
+        <%= f.label :approved %> 
+        <%= f.checkbox :approved %> 
+   </div> 
+
+   <div> 
+        <%= f.submit %> 
+   </div> 
+
+
+   <% end %> 
+   <% end %> 
+
+   <% else %> 
+
+   render plain: "no reviews to review ;)"
+
+   <% end %> 
+

@@ -18,23 +18,27 @@ class ConsultationsController < ApplicationController
         submitted_consultation_request = params[:consultation][:request]
         @consultation.request = submitted_consultation_request
 
-        
-    respond_to do |format|
-        if @consultation.save && @client.save
-            render plain: "you have successfully requested a consultation"
+        #change this to a private method
 
+        
+
+        if @client.save
+
+        @consultation.client = @client
+
+            if @consultation.save
+            
             # Tell the UserMailer to send a welcome email after save
             UserMailer.with(user: @user).welcome_email.deliver_later
 
-            format.html { redirect_to(@user, notice: 'User was successfully created.') }
-            format.json { render json: @user, status: :created, location: @user }
+            render plain: "you have successfully requested a consultation"
+            end 
+           
         else
             render plain: "We have not been able to process your consultation request"
-            format.html { render action: 'new' }
-            format.json { render json: @user.errors, status: :unprocessable_entity }
+            
         end 
 
-    end 
     end
 
 end

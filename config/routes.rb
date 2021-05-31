@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root "photos#index"
   resources :clients, only:[:new, :create]
   resources :photos, only:[:index]
-  resource :consultations, only:[:new, :create]
+  resources :consultations, only:[:new, :create]
   resource :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
   resources :reviews, only: [:new, :create, :index]
-  resources :approvals, only: [:index]
+  #nest the approvals route to reviews
+  resources :approvals, only: [:new, :create]
   
 end
