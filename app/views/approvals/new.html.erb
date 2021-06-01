@@ -5,9 +5,8 @@
      <%= @not_approved_and_not_looked_over_reviews.each do |review| %> 
 
           <%= form_for :review, url: approvals_path do |f| %>
-
-     <h2> Submitted by <%= review.first_name %> <%= client.last_name %> </h2> 
-     <h3> In the review <%= client.first_name %> <%= client.last_name %> writes that "<%= review.review %>" </h3> 
+     <h2> Submitted by <%= review.client.first_name %> <%= review.client.last_name %> </h2> 
+     <h3> In the review <%= review.client.first_name %> <%= review.client.last_name %> writes that <%= review.review %> </h3> 
      
 
    <div> 
