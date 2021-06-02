@@ -8,7 +8,10 @@ class UsersController < ApplicationController
         @user = User.new
         submitted_email = params[:user][:email]
         submitted_password = params[:user][:password]
-        submitted_password = params[:user][:password_confirmation]
+        submitted_password_confirmation = params[:user][:password_confirmation]
+        @user.email = submitted_email
+        @user.password_digest = submitted_password
+        @user.save
 
         if @user.save 
             redirect_to new_session_path

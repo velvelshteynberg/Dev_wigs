@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :consultations, only:[:new, :create]
   resource :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  resources :reviews, only: [:new, :create, :index]
+  resources :reviews, only: [:new, :create, :index, :destroy, :update] do 
   #nest the approvals route to reviews
-  resources :approvals, only: [:new, :create]
+      resources :approvals, only: [:new, :create]
+  end 
   
 end

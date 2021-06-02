@@ -1,0 +1,33 @@
+#put this form into reviews#index page and use an if condition dependent on whether I am the admin or not
+<% if @not_approved_and_not_looked_over_reviews.count > 0 %>
+
+
+     <h1> These are the reviews that await your approval and confirmation </h1> 
+
+        <%= @not_approved_and_not_looked_over_reviews.each do |review| %> 
+
+          
+            <h2> Submitted by <%= review.client.first_name %> <%= review.client.last_name %> </h2> 
+            <h3> In the review <%= review.client.first_name %> <%= review.client.last_name %> writes that <%= review.review %> </h3> 
+     
+         
+        
+            <div>
+                <%= link_to "Approve review", review_path(review) %>
+            </div>
+        
+            <div> 
+                 <%= link_to "Delete review", review_path(review) %>
+            </div> 
+
+        <%  end %>  
+
+   <% else %> 
+
+   render plain: "no reviews to review ;)"
+
+   <% end %> 
+   
+
+   
+

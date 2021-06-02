@@ -30,7 +30,8 @@ class ConsultationsController < ApplicationController
             @consultation.save
             
             # Tell the UserMailer to send a welcome email after save
-            # UsersMailer.with(user: @client).welcome_email.deliver_later
+            #change the name of the view file to consultation_mailer
+            ConsultationsMailer.with(user: @client).welcome_email.deliver_later
 
             render plain: "you have successfully requested a consultation"
            

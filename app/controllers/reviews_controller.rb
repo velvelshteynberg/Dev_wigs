@@ -1,4 +1,17 @@
 class ReviewsController < ApplicationController
+    before_action :require_login, only: [:update, :destroy]
+    def index
+       
+        if 
+            session[:user] = user.id
+        #work on deleting the reviews that I'm not interested in posting on the actual website
+        @not_approved_and_not_looked_over_reviews = Review.not_approved
+
+        else 
+            render :Review.approved
+        end 
+
+    end 
 
     def new
     
@@ -7,6 +20,8 @@ class ReviewsController < ApplicationController
     def create
             @client = Client.new
             @review = Review.new
+
+            #look into strong params (also on ruby on rails guide)
             submitted_first_name = params[:client][:first_name]
             submitted_last_name = params[:client][:last_name]
             submitted_email = params[:client][:email]
@@ -31,5 +46,15 @@ class ReviewsController < ApplicationController
                 render plain: "We have not been able to process your review. Please try again later."
                 
                 end  
+    end 
+
+    def update 
+
+    end 
+
+    def destroy
+        @review = Review.find(params[:id])
+        @review.destroy
+        render :index
     end 
 end
