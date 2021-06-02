@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
             render plain: "you are succesfully logged in"
             #create a session 
             session[:user_id] = user.user_id
-            redirect_to root_url
         else
             render plain: "unable to log in"
         end 
