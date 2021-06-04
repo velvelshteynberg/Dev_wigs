@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :require_login, only: [:destroy]
+    #before_action :require_login, only: [:destroy]
     def index
        
         if 
@@ -53,8 +53,8 @@ class ReviewsController < ApplicationController
     end 
 
     def destroy
-        @review = Review.find(params[:id])
-        @review.destroy
-        render :index
+        @review = Review.find_by(params[:id])
+        @review.delete
+
     end 
 end

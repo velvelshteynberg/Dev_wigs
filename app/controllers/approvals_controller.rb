@@ -4,7 +4,7 @@ class ApprovalsController < ApplicationController
 
       def create 
         #update the deafult value for approval to be true
-        @review = Review.find(1)
+        @review = Review.find_by(params[:id])
         @review.approved = true 
         @review.save
 
@@ -14,7 +14,7 @@ class ApprovalsController < ApplicationController
         
         else
 
-          render :"Unable to approve the review"
+          render plain:"Unable to approve the review"
 
         end 
 
