@@ -2,13 +2,23 @@ class ApprovalsController < ApplicationController
     #you still need before_action to actually validate even though you have a nested route
     #before_action :require_login, only: [:new]
 
-    def new
+      def create 
+        #update the deafult value for approval to be true
+        @review = Review.find(1)
+        @review.approved = true 
+        @review.save
+
+        if @review.save
+          
+          render plain: "success"
         
-    end 
+        else
 
-    def create
+          render :"Unable to approve the review"
 
-    end 
+        end 
+
+      end 
 
     def require_login
         unless  session[:user_id]

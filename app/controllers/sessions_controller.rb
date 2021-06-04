@@ -6,14 +6,14 @@ class SessionsController < ApplicationController
     def create
         submitted_email = params[:session][:email]
         submitted_password = params[:session][:password]
-        user = User.find_by(email: submitted_email)
+        @user = User.find_by(email: submitted_email)
 
-        if user && user.authenticate(submitted_password)
+        if @user && @user.authenticate(submitted_password)
             render plain: "you are succesfully logged in"
             #create a session 
-            session[:user_id] = user.user_id
+            session[:user_id] = @user.id
         else
-            render plain: "unable to log in"
+            render :new
         end 
     end 
 

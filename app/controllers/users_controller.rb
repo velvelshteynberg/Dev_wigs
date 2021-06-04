@@ -10,7 +10,8 @@ class UsersController < ApplicationController
         submitted_password = params[:user][:password]
         submitted_password_confirmation = params[:user][:password_confirmation]
         @user.email = submitted_email
-        @user.password_digest = submitted_password
+        #the password column has to just be named password (not password digest)
+        @user.password = submitted_password
         @user.save
 
         if @user.save 

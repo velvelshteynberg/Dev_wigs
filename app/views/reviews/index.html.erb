@@ -13,11 +13,13 @@
          
         
             <div>
-                <%= link_to "Approve review", review_path(review) %>
+                    <%= form_for review, url:  review_approvals_path(review), method: :post do |f| %>
+                        <%= f.submit "Approve review" %> 
+                    <% end %> 
             </div>
         
             <div> 
-                 <%= link_to "Delete review", review_path(review) %>
+                 <%= link_to "Delete review", review_path(review), method: :delete, data: {confirm: "Are you sure?" } %>
             </div> 
 
         <%  end %>  

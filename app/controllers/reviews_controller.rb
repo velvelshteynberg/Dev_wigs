@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
-    before_action :require_login, only: [:update, :destroy]
+    before_action :require_login, only: [:destroy]
     def index
        
         if 
-            session[:user] = user.id
+            
         #work on deleting the reviews that I'm not interested in posting on the actual website
         @not_approved_and_not_looked_over_reviews = Review.not_approved
 
