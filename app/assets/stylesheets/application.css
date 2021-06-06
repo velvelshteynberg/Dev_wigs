@@ -19,7 +19,7 @@
 }
 
 * {
-
+   color: darkslategray;
 }
 .nav_div {
    height: 80px;
@@ -45,8 +45,9 @@
 }
 
 .body {
-   height: 150px;
+   height: 300px;
    width: 100%;
+   border: 1px green dashed;
 }
 
 .consultation_div {
@@ -111,7 +112,7 @@
 
 .input_box_consultation_request {
    width: 500px;
-   height: 150px
+   height: 150px;
 }
 
 
