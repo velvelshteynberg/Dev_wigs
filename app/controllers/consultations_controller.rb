@@ -1,45 +1,38 @@
 class ConsultationsController < ApplicationController
 
     def new
+        @client = Client.find(params[:client_id])
+        @consultation = Consultation.new
     end
 
     def create
-        @client = Client.new
-        @consultation = Consultation.new
-        submitted_first_name = params[:client][:first_name]
-        submitted_last_name = params[:client][:last_name]
-        submitted_email = params[:client][:email]
-        submitted_phone = params[:client][:phone]
-        @client.first_name = submitted_first_name
-        @client.last_name = submitted_last_name
-        @client.email = submitted_email
-        @client.phone = submitted_phone
-        @client.save
+        @client = Client.find(params[:client_id])
+        @consultation = Consultation.new(consultation_params)
+        @consultation.client = @client
+        if @client.update(client_params) && @consultation.save
 
-        submitted_consultation_request = params[:consultation][:request]
-        @consultation.request = submitted_consultation_request
-        
-
-        #change this to a private method
-
-        
-
-            if @client.save
-
-            @consultation.client_id = @client.id
-            @consultation.save
-            
-            # Tell the UserMailer to send a welcome email after save
-            #using https://launchschool.com/blog/handling-emails-in-rails to get the email to work
+        # Tell the UserMailer to send a welcome email after save
+        #using https://launchschool.com/blog/handling-emails-in-rails to get the email to work
             ConsultationsMailer.consultation_mailer(@client).deliver
 
-            render plain: "you have successfully requested a consultation"
+             render plain: "you have successfully requested a consultation"
            
             else
             render plain: "We have not been able to process your consultation request"
             
             end 
 
+
+
     end
+    
+    private 
+    def consultation_params 
+        params.require(:consultation).permit(:request)
+    end 
+
+    def client_params 
+        params.require(:client).permit(:first_name, :last_name, :email, :phone)
+    end 
 
 end
