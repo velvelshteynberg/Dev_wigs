@@ -1,44 +1,28 @@
 class ReviewsController < ApplicationController
     #before_action :require_login, only: [:destroy]
     def index
+       @approved_reviews = Review.approved
+       @awaiting_approval = Review.not_approved
        
-        if 
-            
-        #work on deleting the reviews that I'm not interested in posting on the actual website
-        @not_approved_and_not_looked_over_reviews = Review.not_approved
-
-        else 
-            render :Review.approved
-        end 
-
     end 
 
     def new
-    
+        @client = Client.find(params[:client_id])
+        @review = Review.new
     end 
         
     def create
-            @client = Client.new
-            @review = Review.new
+            @client = Client.find(params[:client_id])
+            @review = Review.new(review_params)
 
             #look into strong params (also on ruby on rails guide)
-            submitted_first_name = params[:client][:first_name]
-            submitted_last_name = params[:client][:last_name]
-            submitted_email = params[:client][:email]
-            submitted_phone = params[:client][:phone]
-            @client.first_name = submitted_first_name
-            @client.last_name = submitted_last_name
-            @client.email = submitted_email
-            @client.phone = submitted_phone
-            @client.save
+            
+            @review.client = @client
 
-            submitted_review = params[:review][:review]
-            @review.review = submitted_review
+                if @client.update(client_params) && @review.save
 
-                if @client.save 
-
-                @review.client_id = @client.id
-                @review.save
+                
+                
                 render plain: "Thank you for your review."
 
                 else
@@ -56,5 +40,15 @@ class ReviewsController < ApplicationController
         @review = Review.find_by(params[:id])
         @review.delete
 
+    end 
+
+    private
+
+    def review_params 
+        params.require(:review).permit(:review)
+    end 
+
+    def client_params 
+        params.require(:client).permit(:first_name, :last_name, :email, :phone)
     end 
 end

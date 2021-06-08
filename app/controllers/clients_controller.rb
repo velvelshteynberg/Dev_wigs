@@ -8,12 +8,13 @@ class ClientsController < ApplicationController
             redirect_to new_client_consultation_url(@client)
     end 
 
-    def create_review
+    def client_generator
+
         @client = Client.find_by(email: params[:client][:email])
         if !@client || @client == nil 
             @client = Client.create(email: params[:client][:email])
         end 
-        redirect_to new_client_review_url(@client)
+        redirect_to  new_client_review_url(@client)
     end 
 
     

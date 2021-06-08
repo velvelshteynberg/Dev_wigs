@@ -14,7 +14,9 @@
     <%= link_to "About Us", root_path, :class=> "link" %>
     <%= link_to "Gallery", photos_path, :class=> "link" %>
     <%= link_to "Reviews", reviews_path, :class=> "link" %>
-    <%= link_to "Log in", new_session_path, :class=> "link" %>
+    <% if current_user %> 
+    <%= link_to "Log out", session_path, method: :delete, :class=> "link" %>
+    <% end %>
   </nav>
 </div>
 
@@ -24,7 +26,7 @@
   </body>
 </div> 
 
-      <%= form_for :client, url: create_review_path method: :post,  do |f| %> 
+      <%= form_for :client, url:  clients_path do |f| %> 
 
       <div > 
            <%= f.label :email %>
@@ -37,7 +39,7 @@
 
        
        
-       <%= form_for :client, url: clients_path do |f| %> 
+       <%= form_for :client, url: client_generator_path do |f| %> 
 
         <div > 
            <%= f.label :email %>
@@ -57,3 +59,6 @@
 
 
 </html>
+
+
+      

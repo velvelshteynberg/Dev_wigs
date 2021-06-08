@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "photos#about_us"
-  resources :clients, only:[:new, :create, :create_review] do 
+
+  post "/client_generator", to:"clients#client_generator", as: 'client_generator'
+
+  resources :clients, only:[:create] do 
     resources :consultations, only:[:new, :create]
     resources :reviews, only:[:new, :create]
   end 

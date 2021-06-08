@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: submitted_email)
 
         if @user && @user.authenticate(submitted_password)
-            render plain: "you are succesfully logged in"
             #create a session 
             session[:user_id] = @user.id
+            redirect_to reviews_url
         else
             render :new
         end 

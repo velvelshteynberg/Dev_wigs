@@ -1,9 +1,9 @@
 <h1> Submiit a review </h1> 
 <h2> Please fill out the form and submit your review. We greatly appreciate all reviews</h2> 
 
-<%= form_for :review, url: reviews_path do |f| %>
+<%= form_for [@client, @review] do |f| %>
 
-    <%= fields_for :client do |ff| %> 
+    <%= fields_for @client do |ff| %> 
         
 
         <div> 
@@ -52,4 +52,3 @@
 
 <%= link_to "Admin Login", new_session_path %> 
 
-<%= link_to "Consultation request", new_consultation_path %>
