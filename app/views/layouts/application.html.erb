@@ -38,19 +38,27 @@
 </nav>
 
     <%= yield %>
+
+
+    <%= form_for :client, url:  clients_path do |f| %> 
+        <div class="mb-3 consultation_request_form">
+          <%= f.label :email, :class=> " label form-label"%>
+          <div> 
+          <%= f.text_field :email, :class=> 'form-control input_box' %>
+          </div> 
+        </div>
+      <%= f.submit "Book consultation", :class=> 'btn btn-success consultation_booking_button'  %>
+    <% end %> 
+
+
+
+
   
+   
+   
   </body>
 
-      <%= form_for :client, url:  clients_path do |f| %> 
-
-      <div > 
-           <%= f.label :email %>
-           <%= f.text_field :email %>
-       </div>
-       
-       <%= f.submit "Book consultation"  %>
-       
-       <% end %> 
+      
 
        
        
