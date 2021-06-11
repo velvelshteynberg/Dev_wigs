@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// about us page
 .mission_statement_title {
     text-align: center;
     margin-top: 15px;
@@ -19,3 +20,28 @@
     text-align: justify;
     text-align-last: center;
 }
+
+
+// gallery page - index
+.welcome_gallery_statement {
+    text-align: center;
+    font-size: 48px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+
+}
+.first_set_of_pictures {
+    display: flex;
+    justify-content: space-around;
+}
+
+.picture {
+    height: 250px;
+    width: 300px;
+    border: 1px beige solid;
+    padding: 5px;
+    margin: 15px;
+    border: 2px orange solid;
+}
+
+
