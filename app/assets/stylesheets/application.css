@@ -45,9 +45,9 @@
 }
 
 .body {
-   height: 300px;
+   height: 1000px;
    width: 100%;
-   border: 1px green dashed;
+   border: 1px red solid;
 }
 
 .consultation_div {
@@ -112,10 +112,14 @@
 
 .input_box_consultation_request {
    width: 500px;
-   height: 150px;
+   height: 50px;
 }
 
-
+.direction {
+   justify-content: flex-end;
+   border: 1px red solid;
+   padding-right: 75px;
+}
 
 
 

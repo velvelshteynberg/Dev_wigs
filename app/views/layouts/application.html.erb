@@ -9,22 +9,37 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class = "nav_div" > 
-  <nav class= "nav_bar">
-    <%= link_to "About Us", root_path, :class=> "link" %>
-    <%= link_to "Gallery", photos_path, :class=> "link" %>
-    <%= link_to "Reviews", reviews_path, :class=> "link" %>
-    <% if current_user %> 
-    <%= link_to "Log out", session_path, method: :delete, :class=> "link" %>
-    <% end %>
-  </nav>
-</div>
 
-<div class = "body"> 
-  <body >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse direction" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "About Us", root_path, :class=> "nav-link active" %>
+        </li>
+        <li class="nav-item">
+         <%= link_to "Gallery", photos_path,  :class=> "nav-link active"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Reviews", reviews_path,  :class=> "nav-link active"  %>
+        </li>
+        <% if current_user %> 
+        <li class="nav-item">
+          <%= link_to "Log out", session_path, method: :delete, :class=> "nav-link active" %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
     <%= yield %>
+  
   </body>
-</div> 
 
       <%= form_for :client, url:  clients_path do |f| %> 
 
@@ -39,16 +54,7 @@
 
        
        
-       <%= form_for :client, url: client_generator_path do |f| %> 
-
-        <div > 
-           <%= f.label :email %>
-           <%= f.text_field :email %>
-       </div>
-       
-       <%= f.submit "Submit Review"  %>
-
-       <% end %> 
+      
 
 
 
