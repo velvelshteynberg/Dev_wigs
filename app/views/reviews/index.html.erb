@@ -35,6 +35,13 @@
 
    <% else %> 
 
+   <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+
+  
    <% if @approved_reviews.count > 0 %>
 
 

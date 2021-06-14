@@ -20,11 +20,7 @@ class ReviewsController < ApplicationController
             @review.client = @client
 
                 if @client.update(client_params) && @review.save
-
-                
-                
-                render plain: "Thank you for your review."
-
+                    redirect_to reviews_url, notice: "Thank you for your review"
                 else
 
                 render plain: "We have not been able to process your review. Please try again later."
