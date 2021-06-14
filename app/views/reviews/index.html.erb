@@ -5,7 +5,7 @@
 
      <h1> These are the reviews that await your approval and confirmation </h1> 
 
-        <%= @awaiting_approval.each do |review| %> 
+        <% @awaiting_approval.each do |review| %> 
 
           
             <h2> Submitted by <%= review.client.first_name %> <%= review.client.last_name %> </h2> 
@@ -38,13 +38,15 @@
    <% if @approved_reviews.count > 0 %>
 
 
-     <h1> These are the reviews that have been left by our valued clients </h1> 
+     <h3 class = 'reviews_title'> Reviews </h3> 
 
         <% @approved_reviews.each do |review| %> 
 
-          
-            <h2> <%= review.client.first_name %> <%= review.client.last_name %> </h2> 
-            <h3> Review: <%= review.review %> </h3> 
+        <div class = ' shadow-lg p-3 mb-5 bg-body rounded review_item'> 
+            <h4 > "<%= review.review %>" </h4> 
+            <br>
+            <h6 class = 'client_name'> <%= review.client.first_name %> <%= review.client.last_name %> </h6> 
+        </div> 
 
         <%  end %> 
         

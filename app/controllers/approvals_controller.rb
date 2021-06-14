@@ -10,7 +10,7 @@ class ApprovalsController < ApplicationController
 
         if @review.save
           
-         render plain: "succwfully approved"
+         render plain: "succesfully approved"
 
 
         
