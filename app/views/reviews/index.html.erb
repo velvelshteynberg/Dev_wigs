@@ -2,6 +2,11 @@
 
 <% if @awaiting_approval.count > 0 %>
 
+        <% flash.each do |type, msg| %>
+            <div>
+            <%= msg %>
+            </div>
+        <% end %>
 
      <h1> These are the reviews that await your approval and confirmation </h1> 
 
@@ -51,7 +56,7 @@
 
         <div class = ' shadow-lg p-3 mb-5 bg-body rounded review_item'> 
             <h4 > "<%= review.review %>" </h4> 
-            <br>
+            <br> <br> 
             <h6 class = 'client_name'> <%= review.client.first_name %> <%= review.client.last_name %> </h6> 
         </div> 
 

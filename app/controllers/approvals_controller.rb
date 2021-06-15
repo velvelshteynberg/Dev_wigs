@@ -9,15 +9,9 @@ class ApprovalsController < ApplicationController
         @review.save
 
         if @review.save
-          
-         render plain: "succesfully approved"
-
-
-        
+          redirect_to reviews_url, notice: "Review successfully approved"
         else
-
           render plain:"Unable to approve the review"
-
         end 
 
       end 
