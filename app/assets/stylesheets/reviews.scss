@@ -9,9 +9,10 @@
 }
 
 .review_item {
-    height: 150px;
+    height: auto;
     width: 600px;
     margin-left: 50px;
+    box-sizing: border-box;
 }
 
 .client_name {

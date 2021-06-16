@@ -4,9 +4,8 @@ class ApprovalsController < ApplicationController
 
       def create 
         #update the deafult value for approval to be true
-        @review = Review.find_by(params[:id])
+        @review = Review.find(params[:review_id])
         @review.approved = true 
-        @review.save
 
         if @review.save
           redirect_to reviews_url, notice: "Review successfully approved"
