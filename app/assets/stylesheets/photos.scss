@@ -36,6 +36,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 50px;
+    flex-basis: 0;
+}
+
+.column {
+    flex: 1 1 0px;
+    margin: 25px;
 }
 
 
