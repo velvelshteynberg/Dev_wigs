@@ -14,8 +14,16 @@
  *= require_self
  */
  * {
-   padding: 0px;
-   margin: 0px;
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   background-color: rgba(237, 174, 73, 0.6);
+}
+
+.navigation-bar {
+   background-color: rgba(249, 223, 116, 0.6);
 }
 
  .navigation-div {

@@ -54,7 +54,7 @@
 
         <% @approved_reviews.each do |review| %> 
 
-        <div class = ' shadow-lg p-3 mb-5 bg-body rounded review_item'> 
+        <div class = ' shadow-lg p-3 mb-5 rounded review_item'> 
             <h4 > "<%= review.review %>" </h4> 
             <br> <br> 
             <h6 class = 'client_name'> <%= review.client.first_name %> <%= review.client.last_name %> </h6> 

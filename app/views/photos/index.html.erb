@@ -1,7 +1,17 @@
-<h1 class = 'welcome_gallery_statement'> Welcome to the gallery page </h1> 
+<h1 class = 'welcome_gallery_statement'> Gallery </h1> 
 
-<div class = "first_set_of_pictures"> 
-    <%= image_tag('baby_hair_before.jpeg', :class=> " picture rounded float-start")  %> 
-    <h6> This is the baby hair proc3ess. </h6> 
-    <%= image_tag('baby_hair_after.jpeg', :class=> 'picture rounded float-end') %> 
-</div> 
+    <h3 style = "text-align: center;"> Baby Hair </h3> 
+<div class = "set_of_pictures "> 
+    <div class="card " style="width: 18rem;">
+        <%= image_tag('baby_hair_before.jpeg', :class=> "card-img-top")  %> 
+    <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    </div>
+    <div class="card " style="width: 18rem;">
+        <%= image_tag('baby_hair_after.jpeg', :class=> "card-img-top")  %> 
+    <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    </div>
+</div>

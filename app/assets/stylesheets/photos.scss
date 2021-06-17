@@ -30,20 +30,15 @@
     font-size: 48px;
     margin-top: 15px;
     margin-bottom: 50px;
-
 }
-.first_set_of_pictures {
+
+.set_of_pictures {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
 }
 
-.picture {
-    height: 250px;
-    width: 300px;
-    border: 1px beige solid;
-    padding: 5px;
-    margin: 15px;
-    border: 2px orange solid;
-}
+
+
 
 
