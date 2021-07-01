@@ -15,7 +15,7 @@ class ConsultationsController < ApplicationController
         #using https://launchschool.com/blog/handling-emails-in-rails to get the email to work
             ConsultationsMailer.consultation_mailer(@client).deliver
 
-             render plain: "you have successfully requested a consultation"
+            redirect_to root_url, notice: "Consultation successfully requested. You will get an email confirmatiion momentarily"
            
             else
             render plain: "We have not been able to process your consultation request"
