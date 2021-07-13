@@ -12,23 +12,53 @@
  *
  *= require_tree .
  *= require_self
- */
+ front end inspiration = https://www.lucidmotors.com/*/
+
  * {
+    box-sizing: border-box;
+}
+
+body {
    padding: 0;
    margin: 0;
 }
 
-body {
-   background-color: rgba(237, 174, 73, 0.6);
+.div {
+   width: 100%;
+   height: 75vh;
+   background-image: url("");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   opacity: .2;
 }
 
-.navigation-bar {
-   background-color: rgba(249, 223, 116, 0.6);
+.image {
+   height: 100%;
+   width: 100%;
+   opacity: .7 ;
+   z-index: -10;
+   position: absolute;
+
 }
 
- .navigation-div {
-    margin-top: 0px;
- }
+.nav-bar {
+   z-index: 1;
+   position: absolute;
+   display: flex;
+}
+
+.nav-items {
+   z-index: 1;
+   color: black;
+}
+.nav-item {
+   list-style: none;
+}
+
+
+
+
 
 
 
