@@ -1,5 +1,5 @@
 class ConsultationsMailer < ApplicationMailer
-    default from: 'notifications@example.com'
+    default from: 'velvelshteynberg@gmail.com'
 
     def consultation_mailer(client)
       @client = client
