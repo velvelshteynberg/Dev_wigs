@@ -15,6 +15,19 @@ class ApprovalsController < ApplicationController
 
       end 
 
+      def update
+        @consultation = Consultation.find(params[:consultation_id])
+        @consultation.processed = true 
+        @client = @consultation.client
+
+        if @consultation.save
+          ConsultationsMailer.processed_email_mailer(@client).deliver_now
+          redirect_to reviews_url
+        else 
+          render plain: 'Unable to process'
+        end 
+      end 
+
     def require_login
         unless  session[:user_id]
           redirect_to new_session_url

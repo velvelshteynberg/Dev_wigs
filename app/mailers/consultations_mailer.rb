@@ -5,4 +5,9 @@ class ConsultationsMailer < ApplicationMailer
       @client = client
       mail(to: @client.email, subject: 'Thank you for your consultation request. We will get back to you promptly...')
     end
+
+    def processed_email_mailer(client)
+      @client = client
+      mail(to: @client.email)
+    end 
 end

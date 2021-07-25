@@ -18,4 +18,8 @@ Rails.application.routes.draw do
       resource :approvals, only: [:create]
   end 
   
+  resources :consultations, only: [:index, :destroy, :update] do 
+    resource :approvals, only: [:update]
+  end 
+  
 end

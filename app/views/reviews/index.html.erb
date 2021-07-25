@@ -1,7 +1,4 @@
 <% if current_user %> 
-
-<% if @awaiting_approval.count > 0 %>
-
         <% flash.each do |type, msg| %>
             <div>
             <%= msg %>
@@ -26,19 +23,38 @@
         
             <div> 
                  <%= link_to "Delete review", review_path(review), method: :delete, data: {confirm: "Are you you would like to delete this review?" } %>
-            </div> 
-
-                        
-
+            </div>       
         <%  end %>  
+        
 
-   <% else %> 
+        <h1> These are the consultations that still need to be processes </h1> 
 
-   <p> no reviews to review </p>  
+        <%  @not_approved_consultations.each do |consultation| %> 
 
-   <% end %> 
+          
+            <h2> Submitted by <%= consultation.client.first_name %> <%= consultation.client.last_name %> </h2> 
+            <h3> In the review <%= consultation.client.first_name %> <%= consultation.client.last_name %> writes that <%= consultation.request %> </h3> 
+     
+         
+        
+            <div>
+                    <%= form_for consultation, url:  consultation_approvals_path(consultation), method: :put do |f| %>
 
-   <% else %> 
+                        <%= f.submit "Process consultation" %> 
+                    <% end %> 
+            </div>
+        
+            <div> 
+                 <%= link_to "Delete consultation", consultation_path(consultation), method: :delete, data: {confirm: "Are you you would like to delete this consultation?" } %>
+            </div> 
+        <% end %>
+
+
+
+
+
+   
+            <% else %> 
 
    <% flash.each do |type, msg| %>
     <div>
@@ -71,10 +87,9 @@
            
         <%= f.submit "Submit Review"  %>
     
-           <% end %> 
+        <% end %> 
 
    <% else %> 
-
    <p>  no reviews yet  </p>
 
         <%= form_for :client, url: client_generator_path do |f| %> 
@@ -89,9 +104,6 @@
    <% end %> 
 
    <% end %> 
-
-   <% end %> 
-   
-
+   <% end %>
    
 

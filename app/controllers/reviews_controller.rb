@@ -3,6 +3,8 @@ class ReviewsController < ApplicationController
     def index
        @approved_reviews = Review.approved
        @awaiting_approval = Review.not_approved
+       @not_approved_consultations = Consultation.not_processed
+       @approved_consultations = Consultation.processed
        
     end 
 
