@@ -3,11 +3,11 @@ class ConsultationsMailer < ApplicationMailer
 
     def consultation_mailer(client)
       @client = client
-      mail(to: @client.email, subject: 'Thank you for your consultation request. We will get back to you promptly...')
+      mail(to: @client.email, subject: 'Consultation confirmation')
     end
 
     def processed_email_mailer(client)
       @client = client
-      mail(to: @client.email)
+      mail(to: @client.email, subject: 'Consultation scheduling')
     end 
 end
